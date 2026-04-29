@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabor Andino - Sabores Perdidos</title>
+    <title>Sabor Andino - Receitas que transformam</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Optimización: Preconexión para cargar fuentes más rápido -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Fuentes de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -19,14 +16,12 @@
 
         body {
             font-family: 'Lato', sans-serif;
-            background-color: #ffffff;
+            background-color: #0a0102;
             background-image: 
-                radial-gradient(#d4af37 1px, transparent 1px),
-                radial-gradient(#d4af37 1px, transparent 1px);
+                radial-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px),
+                radial-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px);
             background-size: 60px 60px;
             background-position: 0 0, 30px 30px;
-            background-color: rgba(255, 255, 255, 0.97);
-            background-blend-mode: overlay;
         }
 
         .title-font { font-family: 'Cinzel', serif; }
@@ -36,7 +31,6 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
-        /* Clases de optimización del carrusel */
         .card-img-wrapper {
             position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; 
             transition: transform 0.7s ease;
@@ -57,39 +51,26 @@
         @media (min-width: 1024px) { .carousel-item { width: 33.333333%; } }
     </style>
 </head>
-<body class="min-h-screen relative overflow-x-hidden">
+<body class="min-h-screen relative overflow-x-hidden pt-16 md:pt-20">
 
-    <!-- Header Estilo Mockup (Mascota Central) -->
-    <header class="bg-[#bf0025] h-16 md:h-20 w-full flex items-center justify-between px-4 sm:px-8 md:px-12 shadow-md relative z-50">
-        
-        <!-- Izquierda: Texto Logo -->
-        <div class="flex-shrink-0 z-10">
-            <span class="text-white text-2xl sm:text-3xl md:text-4xl whitespace-nowrap title-logo-font">
+    <header id="navbar" class="bg-[#bf0025] h-16 md:h-20 w-full flex items-center justify-between px-4 sm:px-8 md:px-12 shadow-md fixed top-0 left-0 z-50 transition-transform duration-300 ease-in-out">
+        <div class="flex-shrink-0 z-10 flex items-center gap-3">
+            <svg class="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 100 100" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M 30 45 C 10 20 35 0 50 15 C 65 0 90 20 70 45" />
+                <path d="M 30 45 L 70 45 L 67 55 L 33 55 Z" />
+                <path d="M 35 55 C 35 85 65 85 65 55" />
+                <path d="M 42 62 Q 45 60 48 62" stroke-width="2.5" />
+                <path d="M 52 62 Q 55 60 58 62" stroke-width="2.5" />
+                <path d="M 36 72 C 36 63 45 66 50 68 C 55 66 64 63 64 72 C 64 76 56 75 50 72 C 44 75 36 76 36 72 Z" fill="#ffffff" stroke="none" />
+            </svg>
+            <span class="text-white text-2xl sm:text-3xl md:text-4xl whitespace-nowrap title-logo-font mt-1">
                 Sabor Andino
             </span>
         </div>
 
-        <!-- CENTRO: Mascota Colgante (White Outline Chef) -->
-        <div class="absolute left-1/2 -translate-x-1/2 top-0 bg-[#bf0025] w-20 h-24 md:w-28 md:h-32 rounded-b-full flex items-center justify-center shadow-lg z-20 transition-transform duration-300 hover:scale-105 cursor-pointer">
-            <!-- mt-4 empuja el icono al centro visual del óvalo sobresaliente -->
-            <svg class="w-[52px] h-[52px] md:w-[68px] md:h-[68px] mt-3 md:mt-6" viewBox="0 0 100 100" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                <!-- Gorro de Chef -->
-                <path d="M 30 45 C 10 20 35 0 50 15 C 65 0 90 20 70 45" />
-                <path d="M 30 45 L 70 45 L 67 55 L 33 55 Z" />
-                <!-- Rostro -->
-                <path d="M 35 55 C 35 85 65 85 65 55" />
-                <!-- Ojos -->
-                <path d="M 42 62 Q 45 60 48 62" stroke-width="2.5" />
-                <path d="M 52 62 Q 55 60 58 62" stroke-width="2.5" />
-                <!-- Bigote Rizado -->
-                <path d="M 36 72 C 36 63 45 66 50 68 C 55 66 64 63 64 72 C 64 76 56 75 50 72 C 44 75 36 76 36 72 Z" fill="#ffffff" stroke="none" />
-            </svg>
-        </div>
-
-        <!-- Derecha: Enlace y Botón Reservar Original -->
         <div class="flex-shrink-0 z-10 flex items-center gap-4 md:gap-8">
-            <a href="#ubicacion" class="hidden md:block text-white text-sm md:text-base font-medium hover:text-[#d4af37] transition-colors">Dónde encontrarnos</a>
-            <button class="bg-white text-[#bf0025] px-4 py-2 md:px-6 md:py-2.5 rounded-full flex items-center gap-2 font-bold tracking-wide hover:bg-gray-100 transition-colors duration-300 shadow-sm text-sm md:text-base border border-transparent" style="font-family: 'Lato', sans-serif;">
+            <a href="#ubicacion" class="hidden md:block text-white text-sm md:text-base font-medium hover:text-[#d4af37] transition-colors">Onde nos encontrar</a>
+            <button class="bg-white text-[#bf0025] px-4 py-2 md:px-6 md:py-2.5 rounded-full flex items-center gap-2 font-bold tracking-wide hover:bg-gray-100 transition-colors duration-300 shadow-sm text-sm md:text-base border-none">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
                 </svg>
@@ -98,207 +79,182 @@
         </div>
     </header>
 
-    <!-- NUEVA SECCIÓN: Hero / Landing Inicial -->
-    <section class="relative w-full h-[70vh] md:h-[85vh] flex items-center justify-start overflow-hidden">
-        <!-- Imagen de Fondo (Lomo Saltado) -->
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=1920" alt="Plato Gourmet Lomo Saltado" class="absolute inset-0 w-full h-full object-cover object-center" loading="eager" fetchpriority="high">
-        
-        <!-- Degradado Oscuro para legibilidad -->
-        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+    <section class="relative w-full h-[70vh] md:h-[85vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0 pointer-events-none" style="-webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%); mask-image: linear-gradient(to bottom, black 65%, transparent 100%);">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=1920" alt="Prato Gourmet Lomo Saltado" class="absolute inset-0 w-full h-full object-cover object-center" loading="eager" fetchpriority="high">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
+        </div>
 
-        <!-- Contenido del Hero -->
-        <div class="relative z-10 px-6 sm:px-8 md:px-20 max-w-4xl pt-10">
-            <!-- La fuente ahora es la cursiva (title-logo-font) y no se rompe en móvil -->
+        <div class="relative z-10 w-full px-6 flex flex-col items-center justify-center text-center">
             <h1 class="text-white text-[12vw] sm:text-7xl md:text-8xl lg:text-9xl mb-2 title-logo-font font-normal drop-shadow-lg whitespace-nowrap">
                 Sabor Andino
             </h1>
-            <!-- El texto "Sabores perdidos" con la fuente forzada para coincidir con el botón -->
-            <p class="text-[#d4af37] text-lg sm:text-xl md:text-2xl font-bold tracking-widest uppercase mb-10 pl-1 md:pl-2 drop-shadow-md" style="font-family: 'Lato', sans-serif;">
-                Sabores perdidos
+            <p class="text-[#d4af37] text-lg sm:text-xl md:text-2xl font-bold tracking-widest uppercase mb-10 drop-shadow-md">
+                Receitas que transformam
             </p>
             
-            <button onclick="document.getElementById('menu-section').scrollIntoView({behavior: 'smooth'})" class="ml-1 md:ml-2 bg-[#bf0025] text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-bold tracking-widest uppercase hover:bg-[#9a001e] transition-all duration-300 shadow-[0_4px_14px_0_rgba(191,0,37,0.39)] hover:shadow-[0_6px_20px_rgba(191,0,37,0.23)] hover:-translate-y-1" style="font-family: 'Lato', sans-serif;">
-                Explorar Menú
+            <button onclick="document.getElementById('menu-section').scrollIntoView({behavior: 'smooth'})" class="bg-[#bf0025] text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-bold tracking-widest uppercase hover:bg-[#9a001e] transition-all duration-300 shadow-[0_4px_14px_0_rgba(191,0,37,0.39)] hover:shadow-[0_6px_20px_rgba(191,0,37,0.23)] hover:-translate-y-1">
+                Explorar Menu
             </button>
         </div>
     </section>
 
-    <!-- Título Sección Carrusel -->
-    <section id="menu-section" class="text-center pt-20 pb-6 px-6 relative z-10">
-        <p class="text-[#d4af37] tracking-[0.2em] text-xs uppercase font-bold mb-2">Selección del Chef</p>
-        <h2 class="text-4xl md:text-5xl text-gray-900 mb-3 title-font font-semibold">
-            Nuestra Experiencia Culinaria
-        </h2>
-        <div class="w-16 h-0.5 bg-[#bf0025] mx-auto opacity-70"></div>
-    </section>
+    <div class="pt-20 pb-12 w-full relative">
+        <section id="menu-section" class="text-center pb-10 px-6 relative z-10">
+            <p class="text-[#d4af37] tracking-[0.2em] text-xs uppercase font-bold mb-2">Seleção do Chef</p>
+            <h2 class="text-4xl md:text-5xl text-white mb-3 title-font font-semibold">
+                Nossa Experiência Culinária
+            </h2>
+            <div class="w-16 h-0.5 bg-[#d4af37] mx-auto opacity-70"></div>
+        </section>
 
-    <!-- Carrusel de Platos -->
-    <main class="relative w-full max-w-[1400px] mx-auto px-12 md:px-20 py-4 z-10">
-        
-        <!-- Flecha Izquierda -->
-        <button id="btn-prev" class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg bg-[#bf0025] text-white hover:bg-[#9a001e] hover:scale-105" aria-label="Anterior">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-        </button>
+        <main class="relative w-full max-w-[1400px] mx-auto px-12 md:px-20 py-4 z-10">
+            
+            <button id="btn-prev" class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg bg-[#bf0025] border border-[#d4af37]/30 text-white hover:bg-[#9a001e] hover:scale-105" aria-label="Anterior">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
 
-        <!-- Contenedor del Carrusel -->
-        <div class="overflow-hidden w-full py-4 relative">
-            <div id="carousel-track" class="flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">
-                
-                <!-- Plato 1 -->
-                <div class="carousel-item">
-                    <div class="relative aspect-[3/4] bg-gray-100 rounded-[2.5rem] overflow-hidden group shadow-md border border-white/50 cursor-pointer" onclick="openModal('Ceviche Clásico', 'R$35', 'https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?auto=format&fit=crop&q=80&w=800', 'Plato bandera del Perú, originario de la época precolombina donde se marinaba el pescado con jugo de tumbo. Hoy, el limón sutil le da su frescura inconfundible.')">
-                        <img src="https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?auto=format&fit=crop&q=80&w=800" alt="Ceviche Clásico" class="card-img-wrapper" loading="lazy" decoding="async">
-                        <div class="card-gradient"></div>
-                        <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end">
-                            <h3 class="text-white text-2xl md:text-3xl font-medium mb-3 dish-font leading-tight">Ceviche Clásico</h3>
-                            <div class="flex items-center gap-3">
-                                <span class="w-8 h-[1px] bg-[#d4af37]"></span><p class="text-[#d4af37] text-xl font-bold">R$35</p>
+            <div class="overflow-hidden w-full py-4 relative">
+                <div id="carousel-track" class="flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">
+                    
+                    <div class="carousel-item">
+                        <div class="p-[1px] rounded-[2.5rem] bg-gradient-to-br from-white/40 via-gray-500/10 to-transparent shadow-lg group cursor-pointer transition-transform duration-300 hover:-translate-y-1" onclick="openModal('Ceviche Clássico', 'R$35', 'https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?auto=format&fit=crop&q=80&w=800', 'Prato bandeira do Peru, originário da época pré-colombiana onde o peixe era marinado com suco de tumbo. Hoje, o limão dá o seu frescor inconfundível.')">
+                            <div class="relative aspect-[3/4] bg-[#0a0102] rounded-[2.5rem] overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?auto=format&fit=crop&q=80&w=800" alt="Ceviche Clássico" class="card-img-wrapper" loading="lazy" decoding="async">
+                                <div class="card-gradient"></div>
+                                <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end">
+                                    <h3 class="text-white text-2xl md:text-3xl font-medium mb-3 dish-font leading-tight">Ceviche Clássico</h3>
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-8 h-[1px] bg-[#d4af37]"></span><p class="text-[#d4af37] text-xl font-bold">R$35</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Plato 2 -->
-                <div class="carousel-item">
-                    <div class="relative aspect-[3/4] bg-gray-100 rounded-[2.5rem] overflow-hidden group shadow-md border border-white/50 cursor-pointer" onclick="openModal('Lomo Saltado', 'R$42', 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800', 'Fusión perfecta de la herencia inca y la inmigración china (chifa) del siglo XIX. Carne flameada en wok con salsa de soja, cebolla y ají amarillo.')">
-                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800" alt="Lomo Saltado" class="card-img-wrapper" loading="lazy" decoding="async">
-                        <div class="card-gradient"></div>
-                        <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end">
-                            <h3 class="text-white text-2xl md:text-3xl font-medium mb-3 dish-font leading-tight">Lomo Saltado</h3>
-                            <div class="flex items-center gap-3">
-                                <span class="w-8 h-[1px] bg-[#d4af37]"></span><p class="text-[#d4af37] text-xl font-bold">R$42</p>
+                    <div class="carousel-item">
+                        <div class="p-[1px] rounded-[2.5rem] bg-gradient-to-br from-white/40 via-gray-500/10 to-transparent shadow-lg group cursor-pointer transition-transform duration-300 hover:-translate-y-1" onclick="openModal('Lomo Saltado', 'R$42', 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800', 'Fusão perfeita da herança inca e a imigração chinesa do século XIX. Carne flambada na panela wok com molho de soja, cebola e pimenta amarela.')">
+                            <div class="relative aspect-[3/4] bg-[#0a0102] rounded-[2.5rem] overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800" alt="Lomo Saltado" class="card-img-wrapper" loading="lazy" decoding="async">
+                                <div class="card-gradient"></div>
+                                <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end">
+                                    <h3 class="text-white text-2xl md:text-3xl font-medium mb-3 dish-font leading-tight">Lomo Saltado</h3>
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-8 h-[1px] bg-[#d4af37]"></span><p class="text-[#d4af37] text-xl font-bold">R$42</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Plato 3 -->
-                <div class="carousel-item">
-                    <div class="relative aspect-[3/4] bg-gray-100 rounded-[2.5rem] overflow-hidden group shadow-md border border-white/50 cursor-pointer" onclick="openModal('Ají de Gallina', 'R$30', 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&q=80&w=800', 'Derivado del manjar blanco europeo, fue adaptado en el virreinato utilizando nuestro ají amarillo peruano para crear este cremoso y reconfortante guiso.')">
-                        <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&q=80&w=800" alt="Ají de Gallina" class="card-img-wrapper" loading="lazy" decoding="async">
-                        <div class="card-gradient"></div>
-                        <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end">
-                            <h3 class="text-white text-2xl md:text-3xl font-medium mb-3 dish-font leading-tight">Ají de Gallina</h3>
-                            <div class="flex items-center gap-3">
-                                <span class="w-8 h-[1px] bg-[#d4af37]"></span><p class="text-[#d4af37] text-xl font-bold">R$30</p>
+                    <div class="carousel-item">
+                        <div class="p-[1px] rounded-[2.5rem] bg-gradient-to-br from-white/40 via-gray-500/10 to-transparent shadow-lg group cursor-pointer transition-transform duration-300 hover:-translate-y-1" onclick="openModal('Ají de Gallina', 'R$30', 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&q=80&w=800', 'Derivado do manjar branco europeu, foi adaptado no vice-reinato utilizando nossa pimenta amarela peruana para criar este ensopado cremoso e reconfortante.')">
+                            <div class="relative aspect-[3/4] bg-[#0a0102] rounded-[2.5rem] overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&q=80&w=800" alt="Ají de Gallina" class="card-img-wrapper" loading="lazy" decoding="async">
+                                <div class="card-gradient"></div>
+                                <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end">
+                                    <h3 class="text-white text-2xl md:text-3xl font-medium mb-3 dish-font leading-tight">Ají de Gallina</h3>
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-8 h-[1px] bg-[#d4af37]"></span><p class="text-[#d4af37] text-xl font-bold">R$30</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Plato 4 -->
-                <div class="carousel-item">
-                    <div class="relative aspect-[3/4] bg-gray-100 rounded-[2.5rem] overflow-hidden group shadow-md border border-white/50 cursor-pointer" onclick="openModal('Arroz Chaufa de Pollo', 'R$28', 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=800', 'Clásica fusión peruano-china. Arroz frito al wok con sillao, trozos de pollo, huevo, y cebolla china, con ese inconfundible sabor a ahumado.')">
-                        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=800" alt="Arroz Chaufa" class="card-img-wrapper" loading="lazy" decoding="async">
-                        <div class="card-gradient"></div>
-                        <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end">
-                            <h3 class="text-white text-2xl md:text-3xl font-medium mb-3 dish-font leading-tight">Arroz Chaufa</h3>
-                            <div class="flex items-center gap-3">
-                                <span class="w-8 h-[1px] bg-[#d4af37]"></span><p class="text-[#d4af37] text-xl font-bold">R$28</p>
+                    <div class="carousel-item">
+                        <div class="p-[1px] rounded-[2.5rem] bg-gradient-to-br from-white/40 via-gray-500/10 to-transparent shadow-lg group cursor-pointer transition-transform duration-300 hover:-translate-y-1" onclick="openModal('Arroz Chaufa de Frango', 'R$28', 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=800', 'Clássica fusão peruano-chinesa. Arroz frito no wok com molho de soja, pedaços de frango, ovo e cebolinha, com aquele inconfundível sabor defumado.')">
+                            <div class="relative aspect-[3/4] bg-[#0a0102] rounded-[2.5rem] overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=800" alt="Arroz Chaufa" class="card-img-wrapper" loading="lazy" decoding="async">
+                                <div class="card-gradient"></div>
+                                <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end">
+                                    <h3 class="text-white text-2xl md:text-3xl font-medium mb-3 dish-font leading-tight">Arroz Chaufa</h3>
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-8 h-[1px] bg-[#d4af37]"></span><p class="text-[#d4af37] text-xl font-bold">R$28</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Plato 5 -->
-                <div class="carousel-item">
-                    <div class="relative aspect-[3/4] bg-gray-100 rounded-[2.5rem] overflow-hidden group shadow-md border border-white/50 cursor-pointer" onclick="openModal('Tallarines Verdes con Bistec', 'R$38', 'https://images.unsplash.com/photo-1626844131082-256783844137?auto=format&fit=crop&q=80&w=800', 'Nuestra versión del pesto italiano, adaptada con espinaca, albahaca, queso fresco y leche evaporada. Servido con un jugoso bistec a la plancha.')">
-                        <img src="https://images.unsplash.com/photo-1626844131082-256783844137?auto=format&fit=crop&q=80&w=800" alt="Tallarines Verdes" class="card-img-wrapper" loading="lazy" decoding="async">
-                        <div class="card-gradient"></div>
-                        <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end">
-                            <h3 class="text-white text-2xl md:text-3xl font-medium mb-3 dish-font leading-tight">Tallarines Verdes</h3>
-                            <div class="flex items-center gap-3">
-                                <span class="w-8 h-[1px] bg-[#d4af37]"></span><p class="text-[#d4af37] text-xl font-bold">R$38</p>
+                    <div class="carousel-item">
+                        <div class="p-[1px] rounded-[2.5rem] bg-gradient-to-br from-white/40 via-gray-500/10 to-transparent shadow-lg group cursor-pointer transition-transform duration-300 hover:-translate-y-1" onclick="openModal('Macarrão Verde com Bife', 'R$38', 'https://images.unsplash.com/photo-1626844131082-256783844137?auto=format&fit=crop&q=80&w=800', 'Nossa versão do pesto italiano, adaptada com espinafre, manjericão, queijo fresco e leite evaporado. Servido com um suculento bife grelhado.')">
+                            <div class="relative aspect-[3/4] bg-[#0a0102] rounded-[2.5rem] overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1626844131082-256783844137?auto=format&fit=crop&q=80&w=800" alt="Macarrão Verde" class="card-img-wrapper" loading="lazy" decoding="async">
+                                <div class="card-gradient"></div>
+                                <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end">
+                                    <h3 class="text-white text-2xl md:text-3xl font-medium mb-3 dish-font leading-tight">Macarrão Verde</h3>
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-8 h-[1px] bg-[#d4af37]"></span><p class="text-[#d4af37] text-xl font-bold">R$38</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Plato 6 -->
-                <div class="carousel-item">
-                    <div class="relative aspect-[3/4] bg-gray-100 rounded-[2.5rem] overflow-hidden group shadow-md border border-white/50 cursor-pointer" onclick="openModal('Causa Limeña', 'R$25', 'https://images.unsplash.com/photo-1528735000313-039ec3a473f0?auto=format&fit=crop&q=80&w=800', 'Suave puré de papa amarilla sazonado con limón y ají amarillo, relleno de pollo y palta. Un plato histórico que alimentó el espíritu peruano.')">
-                        <img src="https://images.unsplash.com/photo-1528735000313-039ec3a473f0?auto=format&fit=crop&q=80&w=800" alt="Causa Limeña" class="card-img-wrapper" loading="lazy" decoding="async">
-                        <div class="card-gradient"></div>
-                        <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end">
-                            <h3 class="text-white text-2xl md:text-3xl font-medium mb-3 dish-font leading-tight">Causa Limeña</h3>
-                            <div class="flex items-center gap-3">
-                                <span class="w-8 h-[1px] bg-[#d4af37]"></span><p class="text-[#d4af37] text-xl font-bold">R$25</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
             </div>
-        </div>
 
-        <!-- Flecha Derecha -->
-        <button id="btn-next" class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg bg-[#bf0025] text-white hover:bg-[#9a001e] hover:scale-105" aria-label="Siguiente">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-        </button>
-    </main>
+            <button id="btn-next" class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg bg-[#bf0025] border border-[#d4af37]/30 text-white hover:bg-[#9a001e] hover:scale-105" aria-label="Siguiente">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+        </main>
+    </div>
 
-    <!-- Dónde Encontrarnos -->
-    <section id="ubicacion" class="w-full max-w-[1400px] mx-auto px-6 md:px-20 py-16 mb-10 z-10 relative">
-        <div class="flex flex-col lg:flex-row items-stretch bg-white rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.08)] overflow-hidden border border-gray-100">
-            <!-- Imagen Izquierda -->
+    <section id="ubicacion" class="w-full max-w-[1400px] mx-auto px-6 md:px-20 py-8 mb-10 z-10 relative">
+        <div class="flex flex-col lg:flex-row items-stretch bg-[#110204] rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.6)] overflow-hidden border border-white/10">
             <div class="w-full lg:w-1/2 min-h-[400px] lg:min-h-0 relative">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1200" alt="Interior del Restaurante" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1200" alt="Interior do Restaurante" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
                 <div class="absolute inset-0 bg-black/10"></div>
             </div>
             
-            <!-- Contenido Derecha -->
             <div class="w-full lg:w-1/2 p-10 md:p-16 flex flex-col justify-center">
-                <p class="text-[#d4af37] tracking-[0.2em] text-xs uppercase font-bold mb-3">Visítanos</p>
-                <h2 class="text-3xl md:text-4xl text-gray-900 mb-10 title-font font-semibold leading-snug uppercase">
-                    El hogar de los<br>sabores andinos
+                <p class="text-[#d4af37] tracking-[0.2em] text-xs uppercase font-bold mb-3">Visite-nos</p>
+                <h2 class="text-3xl md:text-4xl text-white mb-10 title-font font-semibold leading-snug uppercase">
+                    O lar dos<br>sabores andinos
                 </h2>
                 
                 <div class="space-y-8">
-                    <!-- Bloque Dirección -->
                     <div class="flex items-start gap-5">
-                        <div class="flex-shrink-0 mt-1 w-12 h-12 bg-[#faf8f0] rounded-full flex items-center justify-center text-[#bf0025] border border-[#d4af37]/20 shadow-sm">
+                        <div class="flex-shrink-0 mt-1 w-12 h-12 bg-[#bf0025] rounded-full flex items-center justify-center text-white shadow-sm">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2">Dirección</h3>
-                            <p class="text-gray-600 leading-relaxed text-base">Jirón Ricardo Palma,<br>Cusco 0302, Perú</p>
+                            <h3 class="text-lg font-bold text-white mb-2">Endereço</h3>
+                            <p class="text-gray-300 leading-relaxed text-base">Jirón Ricardo Palma,<br>Cusco 0302, Peru</p>
                         </div>
                     </div>
 
-                    <!-- Bloque Horario -->
                     <div class="flex items-start gap-5">
-                        <div class="flex-shrink-0 mt-1 w-12 h-12 bg-[#faf8f0] rounded-full flex items-center justify-center text-[#bf0025] border border-[#d4af37]/20 shadow-sm">
+                        <div class="flex-shrink-0 mt-1 w-12 h-12 bg-[#bf0025] rounded-full flex items-center justify-center text-white shadow-sm">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                         </div>
                         <div class="w-full">
-                            <h3 class="text-lg font-bold text-gray-900 mb-3">Horario de Atención</h3>
+                            <h3 class="text-lg font-bold text-white mb-3">Horário de Atendimento</h3>
                             <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-base">
-                                <span class="font-semibold text-gray-900">Lunes a Viernes:</span>
-                                <span class="text-gray-600">8:30 am a 11:00 pm</span>
-                                <span class="font-semibold text-gray-900">Fin de Semana:</span>
-                                <span class="text-gray-600">8:30 am a 9:30 pm</span>
+                                <span class="font-semibold text-white">Segunda a Sexta:</span>
+                                <span class="text-gray-300">8:30 am a 11:00 pm</span>
+                                <span class="font-semibold text-white">Fim de Semana:</span>
+                                <span class="text-gray-300">8:30 am a 9:30 pm</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Línea Divisoria y Botón -->
-                <div class="mt-10 pt-8 border-t border-gray-100/80 flex justify-start">
+                <div class="mt-10 pt-8 border-t border-white/10 flex justify-start">
                     <button class="bg-[#bf0025] text-white px-8 py-3 rounded-full font-medium tracking-wide hover:bg-[#9a001e] transition-colors duration-300 shadow-sm text-base">
-                        Reservar una Mesa
+                        Reservar uma Mesa
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Adaptado -->
     <footer class="bg-[#bf0025] text-white py-12 relative z-10 border-t-4 border-[#d4af37]">
         <div class="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-10">
             
             <div class="flex flex-col items-center md:items-start text-center md:text-left">
                 <div class="flex items-center gap-3 mb-2">
-                    <!-- Mascota Chef en Footer -->
                     <svg class="w-10 h-10 flex-shrink-0" viewBox="0 0 100 100" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M 30 45 C 10 20 35 0 50 15 C 65 0 90 20 70 45" />
                         <path d="M 30 45 L 70 45 L 67 55 L 33 55 Z" />
@@ -309,7 +265,7 @@
                     </svg>
                     <span class="text-3xl title-logo-font tracking-wide mt-1">Sabor Andino</span>
                 </div>
-                <p class="text-white/80 text-sm md:text-base font-light tracking-wide pl-1">Especialistas en alta cocina peruana.</p>
+                <p class="text-white/80 text-sm md:text-base font-light tracking-wide pl-1">Especialistas em alta gastronomia peruana.</p>
             </div>
 
             <div class="flex gap-4">
@@ -322,33 +278,31 @@
             </div>
 
             <div class="flex flex-col items-center md:items-end text-center md:text-right">
-                <p class="text-white/60 text-xs sm:text-sm font-light">© 2026 Sabor Andino. Todos los derechos reservados.</p>
+                <p class="text-white/60 text-xs sm:text-sm font-light">© 2026 Sabor Andino. Todos os direitos reservados.</p>
             </div>
             
         </div>
     </footer>
 
-    <!-- Modal de Historia -->
-    <div id="dish-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 hidden">
-        <div class="bg-white rounded-3xl overflow-hidden w-full max-w-4xl max-h-[90vh] flex flex-col md:flex-row shadow-2xl relative transform scale-95 transition-transform duration-300" id="modal-content-container">
-            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-10 h-10 bg-white/50 backdrop-blur hover:bg-white rounded-full flex items-center justify-center transition-all text-gray-800 hover:scale-110 shadow-sm">
+    <div id="dish-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 hidden">
+        <div class="bg-[#110204] rounded-3xl overflow-hidden w-full max-w-4xl max-h-[90vh] flex flex-col md:flex-row shadow-2xl relative transform scale-95 transition-transform duration-300 border border-white/10" id="modal-content-container">
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 backdrop-blur hover:bg-[#bf0025] rounded-full flex items-center justify-center transition-all text-white hover:scale-110 shadow-sm border border-white/20">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
             </button>
             <div class="w-full md:w-1/2 h-64 md:h-auto relative">
-                <img id="modal-img" src="" alt="Plato" class="absolute inset-0 w-full h-full object-cover">
+                <img id="modal-img" src="" alt="Prato" class="absolute inset-0 w-full h-full object-cover">
             </div>
             <div class="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto flex flex-col justify-center">
-                <p class="text-[#d4af37] tracking-[0.2em] text-xs uppercase font-bold mb-2">Selección de Autor</p>
-                <h2 id="modal-title" class="text-3xl md:text-4xl text-gray-900 mb-2 leading-tight dish-font">Título</h2>
-                <p id="modal-price" class="text-[#bf0025] text-xl font-bold mb-8">Precio</p>
-                <div class="p-6 rounded-2xl bg-[#faf8f0] border border-[#d4af37]/20">
-                    <p id="modal-history" class="text-gray-800 leading-relaxed text-base"></p>
+                <p class="text-[#d4af37] tracking-[0.2em] text-xs uppercase font-bold mb-2">Seleção de Autor</p>
+                <h2 id="modal-title" class="text-3xl md:text-4xl text-white mb-2 leading-tight dish-font">Título</h2>
+                <p id="modal-price" class="text-[#bf0025] text-xl font-bold mb-8">Preço</p>
+                <div class="p-6 rounded-2xl bg-black/40 border border-[#d4af37]/20">
+                    <p id="modal-history" class="text-gray-300 leading-relaxed text-base"></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Scripts del Carrusel y Modal -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const track = document.getElementById('carousel-track');
@@ -376,6 +330,20 @@
 
             btnPrev.addEventListener('click', () => { if (currentIndex > 0) { currentIndex--; updateCarousel(); } });
             btnNext.addEventListener('click', () => { if (currentIndex < items.length - itemsToShow) { currentIndex++; updateCarousel(); } });
+
+            let lastScrollTop = 0;
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 80) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    navbar.style.transform = 'translateY(0)';
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            });
         });
 
         const modal = document.getElementById('dish-modal');
